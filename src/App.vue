@@ -1,12 +1,39 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
     <router-view/>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      data: [],
+      defaultProps: {
+        children: 'treeMenu',
+        label: 'name'
+      }
+    };
+  },
+  methods: {
+    handleNodeClick(data) {
+      console.log(data);
+    }
+  },
+  created() {
+    axios.get('http://localhost:8080/treeMenu/selectAllWithTree')
+        .then(response => {
+          console.log(response);
+          this.data = response.data.data.items;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  }
+};
+</script>
 
 <style>
 #app {
@@ -16,16 +43,13 @@
   text-align: center;
   color: #2c3e50;
 }
-
 nav {
   padding: 30px;
 }
-
 nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 nav a.router-link-exact-active {
   color: #42b983;
 }
