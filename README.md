@@ -35,16 +35,3 @@
 # 项目使用
 
 拿到项目后在Terminal下输入命令 npm run serve 即可启动。
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
