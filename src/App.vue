@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="1">
         <div class="grid-content bg-purple-light">
-          <el-button type="primary" @click="search" icon="el-icon-search">搜索</el-button>
+          <el-button type="primary" @click="handleSearch" icon="el-icon-search">搜索</el-button>
         </div>
       </el-col>
     </el-row>
@@ -36,7 +36,7 @@ export default {
     handleNodeClick(data) {
       console.log(data);
     },
-    search() {
+    handleSearch() {
       axios.get('http://localhost:8080/treeMenu/selectByMenuName?menuName='+this.menuName)
           .then(response => {
             console.log(response);
