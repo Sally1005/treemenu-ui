@@ -27,7 +27,7 @@
 
 # 项目使用（开发环境）
 
-1. 建议在运行该前端工程前先自行安装好Node.js，以便使用`npm`，下载地址为 https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v16.14.2/node-v16.14.2-x64.msi ，
+1. 建议在运行该前端工程前先自行安装好Node.js，以便使用`npm`，下载地址为 <https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v16.14.2/node-v16.14.2-x64.msi> ，
  可在命令提示符窗口或终端中执行`npm -v`检查是否安装成功；
     ```
     npm -v
@@ -55,10 +55,10 @@
 
 <br/>
 6. 当项目启动后，在提示了启动成功的端口窗口中，按下Ctrl + C即可停止服务。<br/>
-7. 建议打开edge和Chrome浏览器，通过 http://localhost:8888/ 网址进行访问，即可看到默认的页面，如下图：
 
- 　![](.README_images/默认页面.png)
-  当在搜索框中输入“工业“时，依次点开当前节点，页面会以树结构菜单进行展开，如下图：
-　 ![](.README_images/树状菜单.png)<br/>
+7. 建议打开edge和Chrome浏览器，通过 <http://localhost:8888/> 网址进行访问，即可看到默认的页面，如下图：<br/>
+  ![2](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/02.png)
+  当在搜索框中输入“工业“时，依次点开当前节点，页面会以树结构菜单进行展开，如下图：<br/>
+ ![1](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/01.png)
 
 
