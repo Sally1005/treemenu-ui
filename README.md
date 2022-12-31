@@ -37,28 +37,25 @@
 
 3. 克隆项目的地址后，打开Intellij IDEA后，分别点击File > New > Project from Version Control ，再将克隆下来的地址粘贴到URL框中；
 
-4. 在IntelliJ IDEA的Terminal窗口中分别执行；
-  ```
-  npm install
-  npm run serve
-  ```
-<br/>
+4. 在IntelliJ IDEA的Terminal窗口中分别执行:
+    ```
+    npm install
+    npm run serve
+    ```
 5. 执行以上命令即可启动项目，启动成功后，即可看提示：
-  ```
-  App running at:
-     - Local:   http://localhost:8888/
-     - Network: http://192.168.3.180:8888/
-  npm run serve
-   ```
- 
->提示：可能某些电脑上会显示多个网址，这并不重要
+    ```
+   App running at:
+   - Local:   http://localhost:8888/
+   - Network: http://192.168.3.180:8888/
+   npm run serve
+    ```
 
-<br/>
-6. 当项目启动后，在提示了启动成功的端口窗口中，按下Ctrl + C即可停止服务。<br/>
-
-7. 建议打开edge和Chrome浏览器，通过 <http://localhost:8888/> 网址进行访问，即可看到默认的页面，如下图：<br/>
-  ![2](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/02.png)
-  当在搜索框中输入“工业“时，依次点开当前节点，页面会以树结构菜单进行展开，如下图：<br/>
- ![1](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/01.png)
+   >提示：可能某些电脑上会显示多个网址，这并不重要
+6.  当项目启动后，在提示了启动成功的端口窗口中，按下Ctrl + C即可停止服务。<br/>
+7.  建议打开edge和Chrome浏览器，通过 <http://localhost:8888/> 网址进行访问，即可看到默认的页面，如下图：<br/>
+    ![2](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/02.png)
+    当在搜索框中输入“工业“时，依次点开当前节点，页面会以树结构菜单进行展开，如下图：<br/>
+    ![1](https://github.com/Sally1005/treemenu-ui/blob/master/.README_images/01.png)
+  
 
 
