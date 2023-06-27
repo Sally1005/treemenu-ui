@@ -1,14 +1,20 @@
 import Vue from 'vue'
-import App from './Tree.vue'
-import axios from 'axios';
-import ElementUI from 'element-ui'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import axios from 'axios';
+import qs from 'qs';
+import "../api/mock";
 
 Vue.prototype.axios = axios;
+Vue.prototype.qs = qs;
 Vue.use(ElementUI);
-
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')
