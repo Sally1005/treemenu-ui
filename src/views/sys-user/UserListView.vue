@@ -48,7 +48,7 @@ export default {
     changeEnable(user) {
       let enableText = ['禁用', '启用'];
       let url = 'http://localhost:8081/users/' + user.id;
-      if (user.enable == 1) {
+      if (user.enable === 1) {
         url += '/enable';
       } else {
         url += '/disable';
@@ -59,7 +59,7 @@ export default {
           .post(url).then((response) => {
         let responseBody = response.data;
         console.log(responseBody);
-        if (responseBody.state == 20000) {
+        if (responseBody.state === 20000) {
           this.$message({
             message: '将【' + user.userName + '】的启用状态设置为【' + enableText[user.enable] + '】成功',
             type: 'success'
@@ -97,14 +97,14 @@ export default {
     },
     handleDelete(user) {
       console.log('handleDelete ... id=' + user.id);
-      let url = 'http://localhost:8081/users/' +user.id + '/delete';
+      let url = 'http://localhost:8081/users/' + user.id + '/delete';
       console.log('url = ' + url);
       this.axios
           .create({'headers': {'Authorization': localStorage.getItem('jwt')}})
           .post(url).then((response) => {
         let responseBody = response.data;
         console.log(responseBody);
-        if (responseBody.state != 20000) {
+        if (responseBody.state !== 20000) {
           this.$message.error(responseBody.message);
         }
         this.loadUserList();

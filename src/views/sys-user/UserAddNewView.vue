@@ -103,7 +103,7 @@ export default {
               .create({'headers': {'Authorization': localStorage.getItem('jwt')}})
               .post(url, formData).then((response)=> {
             let responseBody = response.data;
-            if (responseBody.state == 20000) {
+            if (responseBody.state === 20000) {
               this.$message({
                 message: '添加管理员成功！',
                 type: 'success'
