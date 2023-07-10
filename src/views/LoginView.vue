@@ -19,14 +19,17 @@
 </template>
 
 <script>
+import {resetRouter} from "@/router";
+import _this from "@/main";
+
 export default {
   data() {
     return {
-      role:"", // 添加一个 role 属性，用来存储用户角色
-      searchParam:"",
+      role: "", // 添加一个 role 属性，用来存储用户角色
+      searchParam: "",
       ruleForm: {
         userName: 'root',
-        password: '12345678'
+        password: '1234'
       },
       rules: {
         userName: [
@@ -56,17 +59,27 @@ export default {
             console.log('服务器端响应的结果：' + response);
             console.log(response);
             // 修改LoginView.vue中的submitForm方法
-            if (response.data.state == 20000) {
+            if (response.data.state === 20000) {
               console.log('登录成功');
               this.$message({
                 message: '登录成功！',
                 type: 'success'
               });
               // 获取服务器端响应的JWT，并保存下来
-              let jwt = response.data.data;
+              let jwt = response.data.data.jwt;
+              let menuList = response.data.data.menuList;
+              let roles = response.data.data.roleList;
+              if (menuList && menuList.length > 0) {
+                console.log("menuList", menuList);
+                resetRouter(menuList);
+              }
+              console.log("roles", roles);
+              _this.$store.commit('loginIn', jwt, roles);
               console.log('服务器端响应的JWT：');
               console.log(jwt);
               localStorage.setItem('jwt', jwt);
+              localStorage.setItem('roles', roles);
+              localStorage.setItem('menuList', JSON.stringify(menuList));
               console.log('已经将JWT数据保存到LocalStorage中');
               // 以下仅用于测试从LocalStorage中读取数据，没有实质的功能方面的意义
               let localJwt = localStorage.getItem('jwt');
@@ -78,7 +91,7 @@ export default {
               localStorage.setItem('userRole', userRole);
 
               // 跳转到后台主页
-              this.$router.push('/sys');
+              this.$router.push('/sys/home');
             } else {
               console.log('登录失败，用户名或密码错误！');
               this.$message.error('登录失败，用户名或密码错误！');
