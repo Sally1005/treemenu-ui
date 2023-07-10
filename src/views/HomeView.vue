@@ -17,40 +17,18 @@
               background-color="#1684b0"
               text-color="#fff"
               active-text-color="#fff">
-            <el-menu-item index="/sys/index">
+            <el-menu-item index="/sys/home">
               <i class="el-icon-s-home"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-submenu index="1">
+            <el-submenu v-for="(menu, num) in menuList" :key="num" :index="num + ''">
               <template slot="title">
                 <i class="el-icon-s-check"></i>
-                <span>用户管理</span>
+                <span>{{menu.menuName}}</span>
               </template>
-              <el-menu-item index="/sys/user/add-new">
+              <el-menu-item v-for="(cmenu, cnum) in menu.children" :index="cmenu.path">
                 <i class="el-icon-circle-plus"></i>
-                <span slot="title">添加用户</span>
-              </el-menu-item>
-              <el-menu-item index="/sys/user/list">
-                <i class="el-icon-s-operation"></i>
-                <span slot="title">用户列表</span>
-              </el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-              <template slot="title">
-                <i class="el-icon-s-order"></i>
-                <span slot="title">菜单管理</span>
-              </template>
-              <el-menu-item index="/sys/menu/month">
-                <i class="el-icon-circle-plus"></i>
-                <span slot="title">月度</span>
-              </el-menu-item>
-              <el-menu-item index="/sys/menu/quarter">
-                <i class="el-icon-circle-plus"></i>
-                <span slot="title">季度</span>
-              </el-menu-item>
-              <el-menu-item index="/sys/menu/year">
-                <i class="el-icon-circle-plus"></i>
-                <span slot="title">年度</span>
+                <span slot="title">{{cmenu.menuName}}</span>
               </el-menu-item>
             </el-submenu>
           </el-menu>
@@ -76,11 +54,14 @@ export default {
   data() {
     return {
       role: "",
+      menuList: ""
     };
   },
   created() {
     // 获取用户角色。这里假设用户角色已经存储在 localStorage 中，键名为 userRole
     this.role = localStorage.getItem("userRole");
+    this.menuList = JSON.parse(localStorage.getItem("menuList"));
+    console.log(this.menuList)
   },
 };
 
