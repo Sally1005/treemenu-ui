@@ -35,7 +35,7 @@ export const constantRoutes = [
             {
                 path: 'assetTreePanel',
                 name: 'tree',
-                component: () => import('@/views/sys-menu/MenuTreePanel')
+                component: () => import('@/views/sys-menu/AssetTreePanel')
             }
         ]
     }
