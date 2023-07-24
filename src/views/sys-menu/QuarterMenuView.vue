@@ -62,11 +62,6 @@ export default {
       if (pattern === '') {
         accept([]);
       }
-      // resolveResponse(childForAssetCatalogNameLikeDisp(this.assetCatalogKey, pattern, 0, 1000))
-      //     .then(this.appendEntitiesProperties)
-      //     .then((res) => {
-      //       accept(res);
-      //     });
       const monthMenuId = 54;
       let url = `http://localhost:8081/treeMenu/menus/${monthMenuId}/${pattern}`;
       const res = await axios.get(url); // const res = mock;
@@ -79,29 +74,17 @@ export default {
       let url = `http://localhost:8081/treeMenu/menus/${quarterMenuId}`;
       const res = await axios.get(url); // const res = mock;
       const data = res.data.data.menus; // const data = res.data.menus;
+      data.forEach((entity)=>{
+        entity.children = [];
+      });
       accept(data)
-      // resolveResponse(childForAssetCatalogRootDisp(this.assetCatalogKey, 0, 1000))
-      //     .then(this.appendEntitiesProperties)
-      //     .then((res) => {
-      //       accept(res);
-      //     });
     },
     async handleLoadChild(key, accept) {
-      // resolveResponse(childForParentDisp(key, 0, 1000))
-      //     .then(this.appendEntitiesProperties)
-      //     .then((res) => {
-      //       accept(res);
-      //     });
       let url = `http://localhost:8081/treeMenu/${key}`;
       const res = await axios.get(url);
       accept(res.data.data.menus);
     },
     async handleQueryPath(key, accept) {
-      // resolveResponse(pathFromRoot(key))
-      //     .then(this.appendEntitiesProperties)
-      //     .then((res) => {
-      //       accept(res);
-      //     });
       let url = `http://localhost:8081/treeMenu/menus/queryPath/${key}`;
       const res = await axios.get(url);
       accept(res.data.data.menus);
